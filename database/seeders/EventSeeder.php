@@ -16,6 +16,8 @@ class EventSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create(); // Instanciar Faker
+        
+        $faker->addProvider(new \Mmo\Faker\PicsumProvider($faker));
 
         foreach (range(1,10) as $index) {
             DB::table('events')->insert([
@@ -30,7 +32,10 @@ class EventSeeder extends Seeder
                 // 'venue_image' => $faker->imageUrl(800, 600, 'city', true, 'venue'),
 
                 'cover_image' => 'https://picsum.photos/seed/' . uniqid() . '/200',
-                'venue_image' => 'https://picsum.photos/200' . uniqid() . '/200'
+                'venue_image' => 'https://picsum.photos/seed/' . uniqid() . '/200',
+
+                // 'cover_image' => 'cursos/' . $faker->picsum('app/public/events', 200, false),
+                // 'venue_image' => 'cursos/' . $faker->picsum('app/public/events', 200, false),
             ]);
         }
     }

@@ -17,7 +17,7 @@
     <!-- Custom Styles -->
     <style>
         body {
-            padding-top: 56px;
+            padding-top: 60px;
         }
         .navbar-brand {
             font-weight: bold;
