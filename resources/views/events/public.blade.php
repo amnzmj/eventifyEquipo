@@ -10,7 +10,7 @@
         @foreach ($events as $event)
         <div class="col-md-4 mb-4">
             <div class="card shadow-lg border-0 rounded-lg">
-                <img src="{{ asset('storage/' . $event->cover_image) }}" class="card-img-top" alt="{{ $event->name }}" style="max-height: 200px; object-fit: cover;">
+                <img src="{{ asset('storage/' . $event->cover_image) }}" class="card-img-top" alt="{{ $event->name }}" style="max-height: 600px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title text-dark">{{ $event->name }}</h5>
                     <p class="card-text text-muted">{{ $event->description }}</p>

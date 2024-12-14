@@ -19,13 +19,18 @@ class EventSeeder extends Seeder
 
         foreach (range(1,10) as $index) {
             DB::table('events')->insert([
-                'name' => Str::random(10),
+                'name' => $faker->unique()->company(), // Nombre más realista o
                 'location' => $faker->city, // Genera un nombre de ciudad
                 'date'=> $faker->dateTimeBetween($startDate = '-3 month',$endDate = 'now +6 month'),
-                'description' => Str::random(60),
+                'description' => $faker->sentence,
                 'price' => $faker->randomFloat(2,100,3000),
                 'created_at' => now(), // Timestamp actual
                 'updated_at' => now(), // Timestamp actual
+                // 'cover_image' => $faker->imageUrl(800, 600, 'abstract', true, 'cover'),
+                // 'venue_image' => $faker->imageUrl(800, 600, 'city', true, 'venue'),
+
+                'cover_image' => 'https://picsum.photos/seed/' . uniqid() . '/200',
+                'venue_image' => 'https://picsum.photos/200' . uniqid() . '/200'
             ]);
         }
     }
